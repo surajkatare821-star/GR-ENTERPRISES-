@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="GR ENTERPRISES — plan your bus journey and enquire on WhatsApp.">
+<title>GR ENTERPRISES | WhatsApp Bus Booking</title>
+<style>
+:root{--navy:#082b50;--blue:#0878ed;--green:#16864a;--pale:#f1f7ff;--ink:#17283e;--muted:#63758a;--line:#dce7f4}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#f7faff}a{text-decoration:none;color:inherit}.wrap{width:min(900px,92%);margin:auto}
+header{background:var(--navy);color:white;padding:17px 0}.brand{font-weight:850;font-size:1.18rem}.brand small{display:block;font-weight:500;font-size:.78rem;color:#c8e7ff}
+.hero{padding:46px 0;color:white;background:linear-gradient(90deg,#062747f2,#063a69cc),url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1400&q=80') center/cover}.tag{font-size:.8rem;font-weight:800;letter-spacing:1.3px;color:#a8e6ff;text-transform:uppercase}.hero h1{font-size:clamp(2.2rem,7vw,3.7rem);line-height:1.05;margin:12px 0}.hero h1 span{color:#3dc5ff}.hero p{line-height:1.65;max-width:600px;color:#e4effa}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.chips span{border:1px solid #ffffff55;border-radius:99px;padding:7px 11px;font-size:.85rem}
+main{padding:28px 0 50px}.card{background:white;border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:0 8px 28px #082b500c;margin-bottom:20px}.card h2{color:var(--navy);margin:0 0 8px}.sub{color:var(--muted);line-height:1.55;margin:0 0 18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field label{display:block;font-size:.83rem;font-weight:750;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #ccd9e8;border-radius:10px;background:#fff;font:inherit;min-width:0}.field textarea{min-height:86px;resize:vertical}.full{grid-column:1/-1}.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;width:100%;border:0;border-radius:11px;padding:14px 18px;font:inherit;font-weight:800;cursor:pointer}.whatsapp{background:#16864a;color:white}.whatsapp:hover{background:#116c3b}.secondary{background:#eaf3ff;color:#075bb7}.notice{font-size:.82rem;color:var(--muted);line-height:1.55;margin-top:12px}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.feature{padding:15px;background:#f4f8fd;border-radius:12px}.feature b{display:block;margin:7px 0}.feature p{font-size:.87rem;color:var(--muted);line-height:1.5;margin:0}footer{background:#041a31;color:#cbd9e9;padding:24px 0;font-size:.86rem}.foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.status{display:none;padding:12px;border-radius:10px;background:#e9fbf1;color:#145c38;margin-top:12px;line-height:1.5}.status.show{display:block}
+@media(max-width:580px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.features{grid-template-columns:1fr}.hero{padding:38px 0}.card{padding:17px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="#">🚌 GR ENTERPRISES<small>Your Journey, Our Priority</small></a></div></header>
+<section class="hero"><div class="wrap"><div class="tag">Travel made easier</div><h1>Plan your trip with<br><span>GR ENTERPRISES</span></h1><p>Fill in your travel details and send a ready-to-use enquiry directly to our WhatsApp. We will confirm availability and fare with you.</p><div class="chips"><span>✓ Easy enquiry</span><span>✓ Mobile friendly</span><span>✓ Personal support</span></div></div></section>
+<main class="wrap">
+<section class="card" id="booking"><h2>🚌 WhatsApp Bus Enquiry</h2><p class="sub">Enter your trip details. WhatsApp will open with a pre-filled message for you to review and send.</p>
+<form id="tripForm" class="grid">
+<div class="field"><label for="from">From city *</label><input id="from" name="from" placeholder="e.g. Delhi" required></div>
+<div class="field"><label for="to">To city *</label><input id="to" name="to" placeholder="e.g. Jaipur" required></div>
+<div class="field"><label for="date">Journey date *</label><input id="date" name="date" type="date" required></div>
+<div class="field"><label for="passengers">Passengers *</label><select id="passengers" name="passengers" required><option value="1">1 passenger</option><option value="2">2 passengers</option><option value="3">3 passengers</option><option value="4">4 passengers</option><option value="5">5 passengers</option><option value="6+">6 or more passengers</option></select></div>
+<div class="field"><label for="journey">Journey type</label><select id="journey" name="journey"><option>One way</option><option>Round trip</option></select></div>
+<div class="field"><label for="busType">Preferred bus (optional)</label><select id="busType" name="busType"><option>Any suitable bus</option><option>AC Seater</option><option>Non-AC Seater</option><option>AC Sleeper</option><option>Non-AC Sleeper</option></select></div>
+<div class="field"><label for="name">Your name (optional)</label><input id="name" name="name" placeholder="Passenger name"></div>
+<div class="field"><label for="contact">Your contact number (optional)</label><input id="contact" name="contact" type="tel" inputmode="tel" placeholder="Your phone number"></div>
+<div class="field full"><label for="notes">Extra requirements (optional)</label><textarea id="notes" name="notes" placeholder="Boarding point, drop point, luggage, questions..."></textarea></div>
+<div class="full"><button class="btn whatsapp" type="submit">☘ Send enquiry on WhatsApp</button><div id="status" class="status" role="status"></div><p class="notice">When WhatsApp opens, check the details and tap Send. This website does not automatically send messages or confirm a ticket. Availability and fare must be confirmed by GR ENTERPRISES.</p></div>
+</form></section>
+<section class="card"><h2>Why GR ENTERPRISES?</h2><p class="sub">A simple way to ask about your next trip.</p><div class="features"><div class="feature"><span>📍</span><b>Route details</b><p>Share your starting city, destination and travel date.</p></div><div class="feature"><span>💬</span><b>Direct chat</b><p>Continue your enquiry in WhatsApp after reviewing the message.</p></div><div class="feature"><span>🤝</span><b>Personal confirmation</b><p>Confirm actual bus availability, fare and booking terms with the operator.</p></div></div></section>
+<section class="card"><h2>About us</h2><p class="sub" style="margin-bottom:0">GR ENTERPRISES helps travellers enquire about routes and bus travel. Add your verified business address, operating routes, company details and policies here before sharing the website publicly.</p></section>
+</main>
+<footer><div class="wrap foot"><div><b>🚌 GR ENTERPRISES</b><br>Your Journey, Our Priority</div><div>WhatsApp enquiries · Mobile-friendly website</div><div>© <span id="year"></span> GR ENTERPRISES</div></div></footer>
+<script>
+/*
+ * MOBILE EDIT GUIDE:
+ * Update the WhatsApp destination number below.
+ * Use country code +91 with digits only, no +, spaces or hyphens.
+ */
+const WHATSAPP_NUMBER = "916263026136";
+const $ = id => document.getElementById(id);
+$("year").textContent = new Date().getFullYear();
+const now = new Date(); now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+$("date").min = now.toISOString().slice(0,10);
+$("date").value = $("date").min;
+$("tripForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const from = $("from").value.trim();
+  const to = $("to").value.trim();
+  if (from.toLowerCase() === to.toLowerCase()) {
+    $("status").textContent = "Please choose different departure and destination cities.";
+    $("status").classList.add("show"); return;
+  }
+  const details = [
+    "Hello GR ENTERPRISES, I would like to enquire about a bus booking.",
+    "",
+    "From: " + from,
+    "To: " + to,
+    "Journey date: " + $("date").value,
+    "Passengers: " + $("passengers").value,
+    "Journey type: " + $("journey").value,
+    "Preferred bus: " + $("busType").value,
+    "Name: " + ($("name").value.trim() || "Not provided"),
+    "Contact number: " + ($("contact").value.trim() || "Not provided"),
+    "Additional requirements: " + ($("notes").value.trim() || "None"),
+    "",
+    "Please confirm bus availability, fare, boarding point and booking process. Thank you."
+  ].join("\\n");
+  const url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(details);
+  $("status").textContent = "Opening WhatsApp with your enquiry. Review the message and tap Send to contact GR ENTERPRISES.";
+  $("status").classList.add("show");
+  window.open(url, "_blank", "noopener,noreferrer");
+});
+</script>
+</body>
+</html>
